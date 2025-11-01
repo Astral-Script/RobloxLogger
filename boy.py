@@ -8,8 +8,8 @@ import nextcord
 from nextcord.ext import commands
 
 # ---------- CONFIG ----------
-TOKEN   = os.environ["MTQzNDA3ODU0ODQ3MzI4MjYzMA.G0Ejiu.w_VR7wuW0wL8zzSElTzPo1q_bpMwL-3qFvIZvY"]     # set in Render dashboard
-CHANNEL = int(os.environ["1434084772031762482"])   # set in Render dashboard
+TOKEN   = os.environ["DISCORD_TOKEN"]     # set in Render dashboard
+CHANNEL = int(os.environ["CHANNEL_ID"])   # set in Render dashboard
 # ----------------------------
 
 app  = Flask(__name__)
