@@ -9,7 +9,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const { HfInference } = require('@huggingface/inference');
 
 const hf = new HfInference('');
-hf.baseUrl = 'https://router.huggingface.co/hf-inference'; // new URL
+hf.baseUrl = 'https://router.huggingface.co/hf-inference';
 
 const client = new Client({
   intents: [
@@ -34,15 +34,10 @@ client.on('messageCreate', async msg => {
 
   let text = out.generated_text;
   while (text.length) {
-    await msg.channel.send('```lua\n' + text.slice(0, 1900) + '\n```');
+    const chunk = text.slice(0, 1900);
     text = text.slice(1900);
-  }
-});
-
-client.login(process.env.DISCORD_TOKEN);
     await msg.channel.send('```lua\n' + chunk + '\n```');
   }
 });
 
 client.login(process.env.DISCORD_TOKEN);
-  
