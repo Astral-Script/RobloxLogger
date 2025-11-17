@@ -1,16 +1,15 @@
 {
-  "name": "DqrkAI",
+  "name": "DarkAI",
   "version": "1.0.0",
-  "description": "Best Coding Bot!",
+  "description": "24/7 discord bot",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
-"dependencies": {
-  "discord.js": "^14.11.0",
-  "@huggingface/inference": "^2.6.3",
-  "express": "^4.18.2"
-}
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "@huggingface/inference": "^2.6.3",
+    "express": "^4.18.2"
   },
   "engines": {
     "node": "18.x"
