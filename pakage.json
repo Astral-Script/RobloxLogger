@@ -1,12 +1,16 @@
 {
-  "name":"discord-lua-bot",
-  "version":"1.0.0",
-  "main":"bot.js",
-  "scripts":{"start":"node bot.js"},
-  "dependencies":{
-    "discord.js":"^14.11.0",
-    "@huggingface/inference":"^2.6.3",
-    "dotenv":"^16.1.4"
+  "name": "DqrkAI",
+  "version": "1.0.0",
+  "description": "Best Coding Bot!",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
   },
-  "engines":{"node":"18.x"}
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "@huggingface/inference": "^2.6.3"
+  },
+  "engines": {
+    "node": "18.x"
+  }
 }
