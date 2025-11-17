@@ -5,9 +5,9 @@ app.get('/', (req, res) => res.send('OK'));
 app.listen(process.env.PORT || 3000);
 // =====================================================
 
-const { Client, GatewayIntentBits } = require('discord.js');
 const { HfInference } = require('@huggingface/inference');
-const hf = new HfInference();   // FREE, no key needed
+const hf = new HfInference('');          // no token needed
+hf.baseUrl = 'https://router.huggingface.co/hf-inference'; // <-- add this
 
 const client = new Client({
   intents: [
