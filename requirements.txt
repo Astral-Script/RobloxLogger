@@ -1,2 +1,0 @@
-nextcord>=2.4
-Flask>=2.0
