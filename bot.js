@@ -1,5 +1,5 @@
 async function coder13(prompt) {
-  const res = await fetch("https://mollifyingly-unepigrammatic-jannette.ngrok-free.dev/v1/chat/completions", {
+  const res = await fetch("https://12ab3456.ngrok-free.dev/v1/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
