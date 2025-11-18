@@ -1,43 +1,11 @@
-// ===== 24/7 AWAKE ENDPOINT =====
-const express = require('express');
-const app = express();
-app.get('/', (req, res) => res.send('OK'));
-app.listen(process.env.PORT || 3000);
-// =================================
-
-const { Client, GatewayIntentBits } = require('discord.js');
-const { HfInference } = require('@huggingface/inference');
-
-const hf = new HfInference('');
-hf.baseUrl = 'https://router.huggingface.co/hf-inference';
-
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
-  ]
+const res = await fetch("https://mollifyingly-unepigrammatic-jannette.ngrok-free.dev/v1/chat/completions", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    messages: [{role: "user", content: prompt}],
+    max_tokens: 1200,
+    temperature: 0.2
+  })
 });
-
-client.once('ready', () => console.log(`${client.user.tag} ONLINE`));
-
-client.on('messageCreate', async msg => {
-  if (msg.author.bot || !msg.content.startsWith('?')) return;
-  const prompt = msg.content.slice(1).trim();
-  if (!prompt) return;
-
-  const out = await hf.textGeneration({
-    model: 'OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5',
-    inputs: `<|prompter|>${prompt}<|endoftext|><|assistant|>`,
-    parameters: { max_new_tokens: 1200, temperature: 0.2 }
-  });
-
-  let text = out.generated_text;
-  while (text.length) {
-    const chunk = text.slice(0, 1900);
-    text = text.slice(1900);
-    await msg.channel.send('```lua\n' + chunk + '\n```');
-  }
-});
-
-client.login(process.env.DISCORD_TOKEN);
+const json = await res.json();
+return json.choices[0].message.content;
